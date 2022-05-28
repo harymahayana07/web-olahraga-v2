@@ -18,5 +18,9 @@ use Illuminate\Support\Facades\Route;
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
-Route::get('v1/gym', [GymController::class, 'indexApi']);
-Route::get('v1/gym/{id}', [GymController::class, 'showApi']);
+Route::get('paket', [GymController::class, 'indexApi']);
+Route::get('paket/{id}', [GymController::class, 'showApi']);
+Route::post('paket',[GymController::class, 'ambildata']);
+Route::put('paket/{id}',[GymController::class, 'update']);
+Route::delete('paket{id}', [GymController::class, 'destroy']);
+
