@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreatePembeliTable extends Migration
+class CreateOrderTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,11 +13,11 @@ class CreatePembeliTable extends Migration
      */
     public function up()
     {
-        Schema::create('pembeli', function (Blueprint $table) {
-            $table->id();
-            $table->string('no_hp',20);
-            $table->string('nama',60);
-            $table->string('umur',10);
+        Schema::create('order', function (Blueprint $table) {
+            $table->increments('id_order');
+            $table->bigInteger('id_member');
+            $table->integer('paket_id');
+            $table->string('status', 15);
             $table->text('alamat');
             $table->timestamps();
         });
@@ -30,6 +30,6 @@ class CreatePembeliTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('pembeli');
+        Schema::dropIfExists('order');
     }
 }
