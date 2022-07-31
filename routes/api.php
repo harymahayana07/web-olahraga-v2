@@ -22,6 +22,7 @@ use Illuminate\Support\Facades\Route;
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
+
 // tidak perlu login dengan barear access token untuk mengakses :
 Route::group(['prefix' => 'hary-gym'], function() {
     // Get Password
@@ -38,7 +39,7 @@ Route::group(['prefix' => 'hary-gym'], function() {
     Route::get('paket', [PaketsController::class, 'index']);
     Route::get('paket/{id}', [PaketsController::class, 'show']);
 });
-
+// jwt auth
 Route::group(['middleware' => 'api','prefix' => 'auth'], function ($router) {
 
     Route::post('login', [AuthController::class, 'login']);

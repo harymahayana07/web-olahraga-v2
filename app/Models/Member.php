@@ -18,5 +18,4 @@ class Member extends Model
     {
         return $this->hasMany(Order::class,'id_member');
     }
-   
 }
